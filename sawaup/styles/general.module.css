@@ -1,0 +1,12 @@
+.py_3 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.py_5 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.overflow_hidden {
+  overflow: hidden;
+}
