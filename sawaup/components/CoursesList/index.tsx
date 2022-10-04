@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Container, Typography, Box } from '@mui/material';
+import { Container, Typography, Box, Alert } from '@mui/material';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import CourseCard from '../CourseCard';
@@ -73,23 +73,28 @@ const CoursesList = ({ mode, title, courses }: Props) => {
       <Container className={styles.pt_3} maxWidth="xl">
         <Box mb={3}>
           <Typography variant='h4' mb={0}>{title}</Typography>
-          <Swiper
-            key={`Swiper${mode}`}
-            slidesPerView={3}
-            spaceBetween={0}
-            slidesPerGroup={3}
-            loop={true}
-            loopFillGroupWithBlank={true}
-            navigation={true}
-            modules={[Navigation]}
-            className={'mySwiper' + ' ' + styles.py_3}
-          >
-            {coursesFiltered?.map((course: Course, index: number) => (
-              <SwiperSlide key={`CourseCard__${index}__${course.name}`}>
-                <CourseCard course={course} onClick={(config: ModalVideoConfig) => setModalVideo(config)} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+
+          {mode === CourseModeEnum.Filtered && !tagsFiltered.length ? (
+            <Alert severity="info" style={{ width: '100%', marginTop: 15 }}>No courses to list yet!</Alert>
+          ) : (
+            <Swiper
+              key={`Swiper${mode}`}
+              slidesPerView={3}
+              spaceBetween={0}
+              slidesPerGroup={3}
+              loop={false}
+              loopFillGroupWithBlank={true}
+              navigation={true}
+              modules={[Navigation]}
+              className={'mySwiper' + ' ' + styles.py_3}
+            >
+              {coursesFiltered?.map((course: Course, index: number) => (
+                <SwiperSlide key={`CourseCard__${index}__${course.name}`}>
+                  <CourseCard course={course} onClick={(config: ModalVideoConfig) => setModalVideo(config)} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )}
         </Box>
         
         {modalVideo.url && (
