@@ -23,3 +23,9 @@ a {
     background: black;
   }
 }
+
+/* Swiper style override */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}

@@ -11,7 +11,6 @@ import Tooltip from '@mui/material/Tooltip';
 import styles from '../../styles/StaticDrawerMenu.module.css'
 import { CoursesContext } from '../../store/CoursesContext'
 import { setTags, addFilterTag, removeFilterTag } from '../../store/CoursesContext/actions'
-import { httpGet } from '../../lib/fetchData'
 import useApi from '../../hooks/useApi'
 import type { Tag } from '../../types/tag'
 import type { HttpRequest } from '../../types/http-request'
@@ -67,8 +66,6 @@ const StaticDrawerMenu: React.FC = (): JSX.Element => {
     }
   }, [data])
 
-  if (loading) return <Box sx={{ display: 'flex' }}><CircularProgress /></Box>
-
   return (
     <Drawer
       sx={{
@@ -94,7 +91,6 @@ const StaticDrawerMenu: React.FC = (): JSX.Element => {
       </h3>
       
       <Stack direction="row" flexWrap="wrap" padding={1} rowGap={1} columnGap={0.5}>
-        
         {!tagsFiltered.length && <Alert severity="info" style={{ width: '100%' }}>No filtered tags</Alert>}
 
         {tagsFiltered?.map((tag: Tag) => (
@@ -110,6 +106,10 @@ const StaticDrawerMenu: React.FC = (): JSX.Element => {
       <h3 className={styles.tag__title}>Skills Available</h3>
 
       <Stack direction="row" flexWrap="wrap" padding={1} rowGap={1} columnGap={0.5}>
+        {loading && (
+          <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}><CircularProgress /></Box>
+        )}
+
         {tags?.map((tag: Tag) => (
           <Chip
             key={`ChipSkillAvailable__${tag.text}`}

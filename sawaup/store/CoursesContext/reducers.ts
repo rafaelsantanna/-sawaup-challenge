@@ -21,6 +21,11 @@ const coursesReducer = (state: InitialState, action: Action) => {
     return { ...state }
   }
 
+  if (action.type === TypesEnum.SetCourses) {
+    state.courses = action.payload
+    return { ...state }
+  }
+
   return state
 }
 

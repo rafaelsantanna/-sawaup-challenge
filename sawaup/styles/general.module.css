@@ -7,6 +7,15 @@
   padding-bottom: 3rem;
 }
 
+.pt_5 {
+  padding-top: 3rem;
+}
+
+.pt_3 {
+  padding-top: 1rem;
+}
+
+
 .overflow_hidden {
   overflow: hidden;
 }

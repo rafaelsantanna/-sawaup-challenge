@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
 import type { HttpRequest } from '../types/http-request'
-import { httpGet } from '../lib/fetchData'
 
 function useApi<T>(request: HttpRequest): [boolean, T] {
   const [loading, setLoading] = useState<boolean>(true)
@@ -12,7 +11,6 @@ function useApi<T>(request: HttpRequest): [boolean, T] {
         return response.json();
       })
       .then((json) => {
-        console.log(json);
         setLoading(false);
         setData(json);
       });
