@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext } from 'react';
 import { Container, Typography, Box, Alert } from '@mui/material';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
@@ -8,15 +8,15 @@ import type { Course } from '../../types/course';
 import type { ModalVideoConfig } from '../../types/modal-video-config';
 import type { Tag } from '../../types/tag';
 import ModalVideo from '../ModalVideo';
-import { CourseModeEnum } from '../../enums/course-mode'
-import convertArrayObjectToString from '../../lib/convertArrayObjectToString'
+import { CourseModeEnum } from '../../enums/course-mode';
+import convertArrayObjectToString from '../../lib/convertArrayObjectToString';
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import styles from '../../styles/general.module.css';
 
-const initialModalConfig: ModalVideoConfig = { url: '', title: '' }
+const initialModalConfig: ModalVideoConfig = { url: '', title: '' };
 
 type Props = {
   mode: CourseModeEnum
@@ -28,7 +28,7 @@ const getCoursesByTags = (courses: Course[], tags: Tag[]) => {
   let filtered = new Set<Course>([]);
   
   courses?.forEach((course: Course) => {
-    const courseTagsToString = convertArrayObjectToString('text', course.tags)
+    const courseTagsToString = convertArrayObjectToString('text', course.tags);
 
     tags.forEach((tag: Tag) => {
       if(courseTagsToString.includes(tag.text)) {
@@ -48,13 +48,13 @@ const getIntersectCourses = (courses: Course[], courseFiltered: Course[]) => {
 
 const CoursesList = ({ mode, title, courses }: Props) => {
   // Context
-  const [state, dispatch] = useContext(CoursesContext)
+  const [state, dispatch] = useContext(CoursesContext);
 
   // Local State
-  const [modalVideo, setModalVideo] = useState<ModalVideoConfig>(initialModalConfig)
+  const [modalVideo, setModalVideo] = useState<ModalVideoConfig>(initialModalConfig);
 
   let coursesFiltered: Course[] = []
-  const tagsFiltered = state.tags.filter((t: Tag) => t?.filtered) ?? []
+  const tagsFiltered = state.tags.filter((t: Tag) => t?.filtered) ?? [];
 
   if (mode === CourseModeEnum.Filtered) {
     if (tagsFiltered.length) {
@@ -105,4 +105,4 @@ const CoursesList = ({ mode, title, courses }: Props) => {
   )
 }
 
-export default CoursesList
+export default CoursesList;

@@ -11,9 +11,8 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CardActions from '@mui/material/CardActions';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import type { Course } from '../../types/course'
-import type { Tag } from '../../types/tag'
-import type { ModalVideoConfig } from '../../types/modal-video-config'
+import type { Course } from '../../types/course';
+import type { Tag } from '../../types/tag';
 
 type Props = {
   course: Course,
@@ -33,12 +32,12 @@ export default function CourseCard({
   // TODO: the intention was to change the context with the favorite course
   // so that it could somehow display this information, as I didn't have it,
   // I chose to use the state locally, which meant some component from stateless to stateful
-  const [cardFavorite, setCardFavorite] = useState(favorite)
+  const [cardFavorite, setCardFavorite] = useState(favorite);
 
   const handleFavorite = (e: any) => {
-    e.stopPropagation()
+    e.stopPropagation();
 
-    setCardFavorite(!cardFavorite)
+    setCardFavorite(!cardFavorite);
   }
 
   return (

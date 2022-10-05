@@ -1,5 +1,5 @@
 function convertArrayObjectToString(key: string, arrayObj: any[], delimiter: string = ',') {
-  let concatStr = ''
+  let concatStr = '';
 
   for (let index = 0; index < arrayObj.length; index++) {
     const element = arrayObj[index];
@@ -7,7 +7,7 @@ function convertArrayObjectToString(key: string, arrayObj: any[], delimiter: str
     concatStr += (delimiter + element[key]);
   }
 
-  return concatStr
+  return concatStr;
 }
 
-export default convertArrayObjectToString
+export default convertArrayObjectToString;

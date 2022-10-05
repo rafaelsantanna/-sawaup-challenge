@@ -1,5 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import type { Course } from '../../types/course'
+import type { NextApiRequest, NextApiResponse } from 'next';
+import type { Course } from '../../types/course';
 
 export default function handler(
   req: NextApiRequest,

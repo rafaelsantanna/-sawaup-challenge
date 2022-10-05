@@ -1,26 +1,25 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { Box } from '@mui/material'
-import CircularProgress from '@mui/material/CircularProgress'
-import CoursesProvider from '../../store/CoursesContext'
-import MasterClass from '../../components/MasterClass'
-import StaticDrawerMenu from '../../components/StaticDrawerMenu'
-import CoursesList from '../../components/CoursesList'
-import styles from '../../styles/general.module.css'
-import useApi from '../../hooks/useApi'
-import { CourseModeEnum } from '../../enums/course-mode'
-import type { Course } from '../../types/course'
-import type { Tag } from '../../types/tag'
+import React, { useState, useEffect } from 'react';
+import { Box } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
+import CoursesProvider from '../../store/CoursesContext';
+import MasterClass from '../../components/MasterClass';
+import StaticDrawerMenu from '../../components/StaticDrawerMenu';
+import CoursesList from '../../components/CoursesList';
+import styles from '../../styles/general.module.css';
+import useApi from '../../hooks/useApi';
+import { CourseModeEnum } from '../../enums/course-mode';
+import type { Course } from '../../types/course';
 
 const CoursesPage = () => {
   // Custom Hooks
-  const [loading, data] = useApi<Course[]>({ route: '/courses', method: 'GET' })
-  
+  const [loading, data] = useApi<Course[]>({ route: '/courses', method: 'GET' });
+
   // Local State
-  const [courses, setCourses] = useState<Course[]>([])
+  const [courses, setCourses] = useState<Course[]>([]);
 
   useEffect(() => {
     setCourses(data)
-  }, [data])
+  }, [data]);
 
   if (loading) return (
     <Box sx={{
@@ -60,4 +59,4 @@ const CoursesPage = () => {
   )
 }
 
-export default CoursesPage
+export default CoursesPage;

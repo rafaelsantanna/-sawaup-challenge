@@ -1,9 +1,9 @@
-import { useState, useEffect, useCallback } from 'react'
-import type { HttpRequest } from '../types/http-request'
+import { useState, useEffect } from 'react';
+import type { HttpRequest } from '../types/http-request';
 
 function useApi<T>(request: HttpRequest): [boolean, T] {
-  const [loading, setLoading] = useState<boolean>(true)
-  const [data, setData] = useState<T | any>(null)
+  const [loading, setLoading] = useState<boolean>(true);
+  const [data, setData] = useState<T | any>(null);
 
   const fetchApi = () => {
     fetch(`http://127.0.0.1:8080/api${request.route}`)
@@ -18,9 +18,9 @@ function useApi<T>(request: HttpRequest): [boolean, T] {
 
   useEffect(() => {
     fetchApi()
-  }, [])
+  }, []);
 
-  return [loading, data]
+  return [loading, data];
 }
 
-export default useApi
+export default useApi;

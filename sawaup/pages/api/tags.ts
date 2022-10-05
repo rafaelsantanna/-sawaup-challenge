@@ -1,5 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import type { Tag } from '../../types/tag'
+import type { NextApiRequest, NextApiResponse } from 'next';
+import type { Tag } from '../../types/tag';
 
 export default function handler(
   req: NextApiRequest,

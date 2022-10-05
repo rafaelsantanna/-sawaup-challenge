@@ -1,7 +1,7 @@
-import { Dispatch } from 'react'
-import type { Action } from '../../types/action'
-import type { Tag } from '../../types/tag'
-import type { Course } from '../../types/course'
+import { Dispatch } from 'react';
+import type { Action } from '../../types/action';
+import type { Tag } from '../../types/tag';
+import type { Course } from '../../types/course';
 
 const setTags = (dispatch: Dispatch<Action>, payload: Tag[]) => {
   dispatch({
@@ -31,4 +31,4 @@ const setCourses = (dispatch: Dispatch<Action>, payload: Course[]) => {
   })
 }
 
-export { setTags, addFilterTag, removeFilterTag, setCourses }
+export { setTags, addFilterTag, removeFilterTag, setCourses };
